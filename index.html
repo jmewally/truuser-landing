@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Truuser — Identidad verificada, privacidad bajo control</title>
+    <meta name="description" content="Truuser: verificación única y login por atributos para verificar edad/identidad sin custodiar documentos. B2B: API/SDK, OIDC y SLAs." />
+    <style>
+        :root{
+            --bg:#ffffff;
+            --card:#ffffff;
+            --text:#000000;
+            --muted:#657087;
+            --brand:#ffb54c;
+            --brand-2:#ffa43a;
+            --border:#e9edef;
+            --shadow:0 10px 35px rgba(16,24,40,.06);
+        }
+        *{box-sizing:border-box}
+        html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.55}
+        a{color:var(--brand);text-decoration:none} a:hover{text-decoration:underline}
+        .container{max-width:1120px;margin:0 auto;padding:24px}
+        header.nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+        header .left{display:flex;gap:12px;align-items:center}
+        .logo-name{height:28px}
+        .logo-u{height:80px;opacity:.9}
+        .logo-o{height:30px;opacity:.9}
+        .cta{display:flex;gap:10px;align-items:center}
+        .btn{background:#fff;border:1px solid var(--border);color:var(--text);padding:10px 16px;border-radius:12px;font-weight:600;box-shadow:var(--shadow)}
+        .btn.primary{background:linear-gradient(90deg,var(--brand),var(--brand-2));color:#1a1300;border:none}
+        .btn.ghost{background:#fff;border:1px solid var(--border)}
+        .hero-wrap{position:relative;isolation:isolate;background:
+            radial-gradient(1200px 600px at 20% -10%, rgba(255,210,130,.25), transparent 55%),
+            radial-gradient(800px 500px at 80% -10%, rgba(255,181,76,.18), transparent 60%);
+        }
+        .hero-media{max-width:1200px;margin:0 auto;border-radius:20px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--border)}
+        .hero-media .frame{position:relative;width:100%;aspect-ratio:8/5}
+        .hero-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+        .u-overlay{position:absolute;inset:auto 24px 24px auto;background:rgba(0,0,0,.45);color:#fff;padding:10px 12px;border-radius:12px;font-weight:600}
+        .badge{display:inline-flex;gap:8px;align-items:center;background:#fff;border:1px solid var(--border);color:#3b465a;font-weight:600;padding:6px 10px;border-radius:999px;font-size:12px;box-shadow:var(--shadow)}
+        .lead{font-size:40px;letter-spacing:-.02em;margin:18px 0 6px}
+        .sub{color:var(--muted);max-width:780px}
+        .pill-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+        .pill{background:#F3AA35;color:#000000;border:1px solid var(--border);border-radius:999px;padding:6px 10px;font-size:12px;box-shadow:var(--shadow)}
+        .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+        .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px;box-shadow:var(--shadow)}
+        .card h3{margin:12px 0 6px}
+        .card p{color:var(--muted);margin:0}
+        .square{position:relative;width:100%;aspect-ratio:1/1;border-radius:12px;overflow:hidden;border:1px solid var(--border);background:#f9fafb}
+        .square img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+        .cols{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;margin-top:36px}
+        .panel{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px;box-shadow:var(--shadow)}
+        .list{display:grid;gap:10px;margin:10px 0 0}
+        .list div{display:flex;align-items:flex-start;gap:10px}
+        .tick{color:#18a957;margin-right:8px}
+        .kpis{display:flex;gap:14px;flex-wrap:wrap;margin-top:14px}
+        .kpis .k{background:#fff;border:1px solid var(--border);padding:10px 12px;border-radius:12px;font-size:13px;color:var(--muted)}
+        .logos{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:14px;opacity:.9}
+        footer{margin-top:48px;border-top:1px solid var(--border)}
+        .foot{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;padding:18px 0;color:var(--muted);font-size:14px}
+        @media (max-width:980px){
+            .grid-3{grid-template-columns:1fr}
+            .cols{grid-template-columns:1fr;gap:14px}
+            .lead{font-size:32px}
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-wrap">
+        <div class="container">
+            <header class="nav">
+                <div class="left">
+                    <img src="img/name font.png" alt="Truuser U" class="logo-u" />
+                </div>
+                <div class="cta">
+                    <a class="btn ghost" href="#docs">Docs API</a>
+                    <a class="btn primary" href="#demo">Agendar demo</a>
+                </div>
+            </header>
+
+            <!-- Imagen de portada -->
+            <div class="hero-media">
+                <div class="frame">
+                    <img src="img/paints.png" alt="Diseña tu identidad online" />
+                    <div class="u-overlay">Diseña tu identidad online</div>
+                </div>
+            </div>
+            <div style="margin-top:22px">
+				<span class="badge"><img src="img/truuser-logo-only.png" alt="U" style="height:14px"> <img src="img/name font.png" alt="Truuser U" class="logo-o" />Privacidad, confianza y escalabilidad</span>
+            </div>
+			
+			<!-- Hero text -->
+            <div style="margin-top:22px">
+                <h1 class="lead">La forma simple de gestionar y verificar identidad. <br> Sin complicaciones, sin documentos.</h1>
+                <p class="sub">Verificación única (documento + biometría con prueba de vida) y login por <b>atributos</b> (“>18”, “reside en UE”, “documento validado”). Integra con OIDC/SSO, REST o SDK; recibes solo lo necesario. SLAs por volumen.</p>
+                <div class="pill-row">
+                    <span class="pill"><b>Menos fraude y bots</b></span>
+                    <span class="pill"><b>Conversión sin fricción</b></span>
+                    <span class="pill"><b>GDPR / eIDAS 2.0 ready</b></span>
+                    <span class="pill"><b>Express verify para cuentas existentes</b></span>
+                </div>
+            </div>
+
+            <!-- Tres pasos -->
+            <section class="grid-3" style="margin-top:22px">
+                <article class="card">
+                    <div class="square">
+                        <img src="img/lift.png" alt="onboarding" />
+                    </div>
+                    <h3>1. Onboarding</h3>
+                    <p>Documento oficial + selfie con liveness (IA + revisión humana cuando aplique). <b>Una vez y listo.</b></p>
+                </article>
+                <article class="card">
+                    <div class="square">
+                        <img src="img/cinema.png" alt="identidades y atributos" />
+                    </div>
+                    <h3>2. Gestor de identidades</h3>
+                    <p>Maneja identidades por contexto (profesional, anónima, +18). <b>Control granular</b> de qué se comparte en cada plataforma.</p>
+                </article>
+                <article class="card">
+                    <div class="square">
+                        <img src="img/houses.png" alt="integración" />
+                    </div>
+                    <h3>3. Integración</h3>
+                    <p>OIDC/SSO, REST y SDK. “Login con Truuser” o <b>verificación por atributos</b> en flujos existentes.</p>
+                </article>
+            </section>
+
+            <!-- Beneficios -->
+            <section class="cols">
+                <div class="panel">
+                    <h3>Beneficios para plataformas</h3>
+                    <div class="list">
+                        <div><span class="tick">✔</span><span>Verificanción de edad/identidad sin custodiar documentos.</span></div>
+                        <div><span class="tick">✔</span><span>Reduce fraude, soporte y cuentas desechables. Mejora conversión.</span></div>
+                        <div><span class="tick">✔</span><span>SLAs por volumen y time-to-value en semanas.</span></div>
+                    </div>
+                    <div class="kpis">
+                        <div class="k">Atributos: >18, residencia UE, documento válido, persona real</div>
+                        <div class="k">Flujos: SSO/OIDC, Web/Mobile SDK</div>
+                        <div class="k">Ecosistema: KYC/biometría plug-and-play</div>
+                    </div>
+                </div>
+                <div class="panel" id="docs">
+                    <h3>Cómo funciona</h3>
+                    <ol class="list" style="gap:12px">
+                        <li><b>Onboarding</b>: documento + selfie con liveness.</li>
+                        <li><b>Gestor</b>: el usuario elige identidad y atributos a compartir.</li>
+                        <li><b>Token</b>: tu app recibe solo lo necesario, firmado y auditable.</li>
+                    </ol>
+                    <div class="logos">
+                        <img src="img/name font.png" alt="Truuser" style="height:46px">
+                        <img src="img/motto.png" alt="Brand shapes" style="height:46px;opacity:.8">
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA -->
+            <section class="panel" style="margin-top:16px">
+                <h3>Para partners (B2B)</h3>
+                <div class="list">
+                    <div><span class="tick">✔</span><span><b>SaaS/VaaS</b>: tarifa base + precio por verificación/atributo. Endpoints de atributos y SLAs.</span></div>
+                    <div><span class="tick">✔</span><span><b>Privacidad por diseño</b>: minimización de datos (GDPR, eIDAS 2.0).</span></div>
+                    <div><span class="tick">✔</span><span><b>Ventaja</b>: multi-identidades reales por persona, reputación portable y antifraude multi-cuenta.</span></div>
+                </div>
+                <div id="demo" style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
+                    <a class="btn primary" href="mailto:info@truuser.com?subject=Demo%20Tecnica%20Truuser">Agendar demo técnica</a>
+                    <a class="btn" href="#">Descargar deck</a>
+                    <a class="btn ghost" href="#">Probar sandbox</a>
+                </div>
+            </section>
+
+            <footer>
+                <div class="foot">
+                    <div>© 2025 Truuser</div>
+                    <div style="display:flex;gap:12px;align-items:center">
+                        <a href="#">TOS</a><span>·</span><a href="#">Privacidad</a><span>·</span><a href="mailto:info@truuser.com">Contacto</a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>
